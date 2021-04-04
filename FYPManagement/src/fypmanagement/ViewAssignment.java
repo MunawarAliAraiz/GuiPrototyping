@@ -34,7 +34,7 @@ public class ViewAssignment extends javax.swing.JFrame {
         logout7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("List Of Students");
+        setTitle("List of Assignments");
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -110,6 +110,7 @@ public class ViewAssignment extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logout7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout7ActionPerformed

@@ -34,7 +34,7 @@ public class ListOfProjects extends javax.swing.JFrame {
         logout6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("List Of Students");
+        setTitle("List Of Projects");
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -111,6 +111,7 @@ public class ListOfProjects extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logout6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout6ActionPerformed

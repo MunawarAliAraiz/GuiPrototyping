@@ -157,17 +157,21 @@ public class StudentMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAdv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdv1ActionPerformed
         // TODO add your handling code here:
-        AddAdvisor addAdv = new AddAdvisor();
+        CreateGroup addAdv = new CreateGroup();
         this.setVisible(false);
         addAdv.setVisible(true);
     }//GEN-LAST:event_addAdv1ActionPerformed
 
     private void delAdv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delAdv1ActionPerformed
         // TODO add your handling code here:
+        SelectProject addAdv = new SelectProject();
+        this.setVisible(false);
+        addAdv.setVisible(true);
     }//GEN-LAST:event_delAdv1ActionPerformed
 
     private void logout2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout2ActionPerformed
@@ -179,13 +183,16 @@ public class StudentMenu extends javax.swing.JFrame {
 
     private void updAdv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updAdv1ActionPerformed
         // TODO add your handling code here:
-        UpdateAdvisor advMenu = new UpdateAdvisor();
+        ViewAssignment advMenu = new ViewAssignment();
         this.setVisible(false);
         advMenu.setVisible(true);
     }//GEN-LAST:event_updAdv1ActionPerformed
 
     private void listOfAdvisor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listOfAdvisor2ActionPerformed
         // TODO add your handling code here:
+        ViewMarksheet advMenu = new ViewMarksheet();
+        this.setVisible(false);
+        advMenu.setVisible(true);
     }//GEN-LAST:event_listOfAdvisor2ActionPerformed
 
     /**

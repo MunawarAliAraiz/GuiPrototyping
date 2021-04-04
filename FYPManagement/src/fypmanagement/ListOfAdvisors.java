@@ -34,7 +34,7 @@ public class ListOfAdvisors extends javax.swing.JFrame {
         logout6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("List Of Students");
+        setTitle("List Of Advisors");
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -46,7 +46,7 @@ public class ListOfAdvisors extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Title", "Type", "Description", "Advisor", "Project ID"
+                "Name", "Type", "Project", "Department", "Advisor ID"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -55,7 +55,7 @@ public class ListOfAdvisors extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("List Of Projects");
+        jLabel14.setText("List Of Advisors");
 
         logout6.setBackground(new java.awt.Color(102, 255, 0));
         logout6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -111,6 +111,7 @@ public class ListOfAdvisors extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logout6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout6ActionPerformed

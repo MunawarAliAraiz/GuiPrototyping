@@ -38,7 +38,7 @@ public class ViewMarksheet extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("List Of Students");
+        setTitle("List Of Marksheet");
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -152,6 +152,7 @@ public class ViewMarksheet extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logout7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout7ActionPerformed

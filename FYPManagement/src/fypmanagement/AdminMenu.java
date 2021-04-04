@@ -367,12 +367,13 @@ public class AdminMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddStd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStd1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        addStudent addStdFrame = new addStudent();
+        AddStudent addStdFrame = new AddStudent();
         addStdFrame.setVisible(true);
     }//GEN-LAST:event_AddStd1ActionPerformed
 
@@ -406,6 +407,9 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void delAdv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delAdv1ActionPerformed
         // TODO add your handling code here:
+        DeleteAdvisor delAdv = new DeleteAdvisor();
+        this.setVisible(false);
+        delAdv.setVisible(true);
     }//GEN-LAST:event_delAdv1ActionPerformed
 
     private void listOfAdvisor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listOfAdvisor1ActionPerformed

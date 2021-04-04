@@ -41,7 +41,7 @@ public class MarkAssignment extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Delete Assignment");
+        setTitle("Mark Assignment");
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -177,6 +177,7 @@ public class MarkAssignment extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logout6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout6ActionPerformed

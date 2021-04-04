@@ -71,7 +71,7 @@ public class AddAdvisor extends javax.swing.JFrame {
         logout5.setText("Save");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Add Student");
+        setTitle("Add Advisor");
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -275,6 +275,7 @@ public class AddAdvisor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logout4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout4ActionPerformed

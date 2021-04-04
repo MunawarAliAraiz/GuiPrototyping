@@ -171,22 +171,26 @@ public class AdvisorMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAdv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdv1ActionPerformed
         // TODO add your handling code here:
-        AddAdvisor addAdv = new AddAdvisor();
+        AddAssignment addAdv = new AddAssignment();
         this.setVisible(false);
         addAdv.setVisible(true);
     }//GEN-LAST:event_addAdv1ActionPerformed
 
     private void delAdv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delAdv1ActionPerformed
         // TODO add your handling code here:
+        DeleteAssignment addAdv = new DeleteAssignment();
+        this.setVisible(false);
+        addAdv.setVisible(true);
     }//GEN-LAST:event_delAdv1ActionPerformed
 
     private void listOfAdvisor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listOfAdvisor1ActionPerformed
         // TODO add your handling code here:
-        ListOfAdvisors advMenu = new ListOfAdvisors();
+        ViewAssignment1 advMenu = new ViewAssignment1();
         this.setVisible(false);
         advMenu.setVisible(true);
     }//GEN-LAST:event_listOfAdvisor1ActionPerformed
@@ -200,13 +204,16 @@ public class AdvisorMenu extends javax.swing.JFrame {
 
     private void updAdv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updAdv1ActionPerformed
         // TODO add your handling code here:
-        UpdateAdvisor advMenu = new UpdateAdvisor();
+        UpdateAssignment advMenu = new UpdateAssignment();
         this.setVisible(false);
         advMenu.setVisible(true);
     }//GEN-LAST:event_updAdv1ActionPerformed
 
     private void listOfAdvisor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listOfAdvisor2ActionPerformed
         // TODO add your handling code here:
+        MarkAssignment addAdv = new MarkAssignment();
+        this.setVisible(false);
+        addAdv.setVisible(true);
     }//GEN-LAST:event_listOfAdvisor2ActionPerformed
 
     /**
