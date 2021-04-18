@@ -22,22 +22,22 @@ public class Advisor {
     private String Department;
     private String email;
     private String password;
-    private List<Project> projectList = new ArrayList<Project>();
-    private List<Group> groupList = new ArrayList<Group>();
+    private List<String> projectList = new ArrayList<String>();
+    private List<String> groupList = new ArrayList<String>();
 
-    public List<Group> getGroupList() {
+    public List<String> getGroupList() {
         return groupList;
     }
 
-    public void setGroupList(Group g) {
+    public void setGroupList(String g) {
         this.groupList.add(g);
     }
 
-    public List<Project> getprojectList() {
+    public List<String> getprojectList() {
         return projectList;
     }
 
-    public void setprojectList(Project project) {
+    public void setprojectList(String project) {
         this.projectList.add(project);
     }
     
@@ -49,7 +49,7 @@ public class Advisor {
        }
     }
     
-    public void setProjectList(String ID ,Project p){
+    public void setProjectList(String ID ,String p){
        int index = searchProject(ID);
        if(index != -1)
        {
@@ -134,7 +134,7 @@ public class Advisor {
         int index = -1;
          for(int i = 0 ; i  < projectList.size(); i++)
          {
-             if(projectList.get(i).getProjectID().equals(number))
+             if(projectList.get(i).equals(number))
              {
                  index = i;
                  break;

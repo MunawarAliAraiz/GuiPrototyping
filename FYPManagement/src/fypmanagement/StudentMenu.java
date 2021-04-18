@@ -707,7 +707,7 @@ public class StudentMenu extends javax.swing.JFrame {
         Project p = Admin.getProject(projectID);
         Advisor a = Admin.getAdvisor(p.getAdvisor());
         Group g = Admin.getGroup(Admin.getAllStudents().get(loginIndex).getGroupID());
-        a.setGroupList(g);
+        a.setGroupList(g.getGroupID());
         if(Admin.getAllStudents().get(loginIndex).setProject(projectID))
         {
             JOptionPane.showMessageDialog(null, "Project Selected Sucessfully");
@@ -827,7 +827,14 @@ public class StudentMenu extends javax.swing.JFrame {
             model.removeRow(i);
         }
         Student s = Admin.getAllStudents().get(loginIndex);
-        List<Assignment> stdList = Admin.getGroup(s.getGroupID()).getAssignmentList();
+        List<Assignment> stdList = new ArrayList<>();
+        for(int i=0; i<Admin.getAllAssignmnets().size(); i++)
+        {
+            if(Admin.getAllAssignmnets().get(i).getGroupID().equals(s.getGroupID()))
+            {
+                stdList.add(Admin.getAllAssignmnets().get(i));
+            }
+        }
         Object rowData[] = new Object[5];
         for(int i = 0; i< stdList.size();i++)
         {
@@ -849,7 +856,14 @@ public class StudentMenu extends javax.swing.JFrame {
             model.removeRow(i);
         }
         Student s = Admin.getAllStudents().get(loginIndex);
-        List<Assignment> stdList = Admin.getGroup(s.getGroupID()).getAssignmentList();
+        List<Assignment> stdList = new ArrayList<>();
+        for(int i=0; i<Admin.getAllAssignmnets().size(); i++)
+        {
+            if(Admin.getAllAssignmnets().get(i).getGroupID().equals(s.getGroupID()))
+            {
+                stdList.add(Admin.getAllAssignmnets().get(i));
+            }
+        }
         Object rowData[] = new Object[5];
         for(int i = 0; i< stdList.size();i++)
         {
@@ -869,11 +883,11 @@ public class StudentMenu extends javax.swing.JFrame {
         students[1] = std2.getSelectedItem().toString();
         students[2] = std3.getSelectedItem().toString();
         students[3] = std4.getSelectedItem().toString();
-        List<Student> studentList = new ArrayList<Student>();
-        studentList.add(Admin.getStudent(students[0]));
-        studentList.add(Admin.getStudent(students[1]));
-        studentList.add(Admin.getStudent(students[2]));
-        studentList.add(Admin.getStudent(students[3]));
+        List<String> studentList = new ArrayList<String>();
+        studentList.add(students[0]);
+        studentList.add(students[1]);
+        studentList.add(students[2]);
+        studentList.add(students[3]);
         String grpID = "Group-"+Admin.getAllGroups().size()+1;
         Group g = new Group();
         g.setSession(session);
@@ -883,10 +897,10 @@ public class StudentMenu extends javax.swing.JFrame {
         {
             
             JOptionPane.showMessageDialog(null,"Group Created Sucessfuly\nYour Group ID is "+grpID);
-            Student s1 = Admin.getStudent(g.getStudentList().get(0).getID());
-            Student s2 = Admin.getStudent(g.getStudentList().get(1).getID());
-            Student s3 = Admin.getStudent(g.getStudentList().get(2).getID());
-            Student s4 = Admin.getStudent(g.getStudentList().get(3).getID());
+            Student s1 = Admin.getStudent(students[0]);
+            Student s2 = Admin.getStudent(students[1]);
+            Student s3 = Admin.getStudent(students[2]);
+            Student s4 = Admin.getStudent(students[3]);
             s1.setGroupID(grpID);
             s2.setGroupID(grpID);
             s3.setGroupID(grpID);

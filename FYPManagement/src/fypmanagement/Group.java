@@ -13,9 +13,9 @@ import java.util.List;
  * @author Munawar Ali
  */
 public class Group {
-    private List<Student> studentList = new ArrayList<Student>();
-    private List<Assignment> assignmentList = new ArrayList<Assignment>();
-    private Project project = new Project();
+    private List<String> studentList = new ArrayList<String>();
+    private List<String> assignmentList = new ArrayList<String>();
+    private String project;
     private String groupID;
 
     public String getGroupID() {
@@ -26,19 +26,19 @@ public class Group {
         this.groupID = groupID;
     }
 
-    public Project getProject() {
+    public String getProject() {
         return project;
     }
 
-    public void setProject(Project project) {
+    public void setProject(String project) {
         this.project = project;
     }
 
-    public List<Student> getStudentList() {
+    public List<String> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<Student> studentList) {
+    public void setStudentList(List<String> studentList) {
         this.studentList = studentList;
     }
    
@@ -52,11 +52,11 @@ public class Group {
         this.session = session;
     }
 
-    public List<Assignment> getAssignmentList() {
+    public List<String> getAssignmentList() {
         return assignmentList;
     }
 
-    public void setAssignmentList(Assignment assignment) {
+    public void setAssignmentList(String assignment) {
         this.assignmentList.add(assignment);
     }
 }

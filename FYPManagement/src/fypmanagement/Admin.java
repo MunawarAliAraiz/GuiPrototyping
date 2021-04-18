@@ -5,8 +5,13 @@
  */
 package fypmanagement;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,6 +36,198 @@ public class Admin {
     ArrayList<Project> projectList = new ArrayList<>();
     ArrayList<Group> groupList = new ArrayList<>();
     ArrayList<Assignment> assignmentList = new ArrayList<>();
+    
+    
+    public void saveAssignment()
+    {
+        try {
+            FileWriter fw = new FileWriter("assignment.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write("Title,Marks,Rubrics,Deadline,Group-ID,Assignment No,Obtained Marks,Grade\n");
+            
+            for(int i = 0 ; i < Admin.getAllAssignmnets().size();i++)
+            {
+                bw.write(
+                        Admin.getAllAssignmnets().get(i).getTitle()+","+
+                        Admin.getAllAssignmnets().get(i).getMarks()+","+
+                        Admin.getAllAssignmnets().get(i).getRubrics()+","+
+                        Admin.getAllAssignmnets().get(i).getDeadline()+","+
+                        Admin.getAllAssignmnets().get(i).getGroupID()+","+
+                        Admin.getAllAssignmnets().get(i).getAssignNo()+","+
+                        Admin.getAllAssignmnets().get(i).getObtainedMarks()+","+
+                        Admin.getAllAssignmnets().get(i).getGrade()+"\n"
+                        );
+            }
+            
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Something Wrong Ocuur");
+        }
+        
+    }
+    
+    public void saveGroup()
+    {
+        try {
+            FileWriter fw = new FileWriter("group.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i = 0 ; i < Admin.getAllGroups().size();i++)
+            {
+                String a = "";
+                String b = "";
+                for(int j = 0 ; j < Admin.getAllGroups().get(i).getAssignmentList().size();j++)
+                {
+                    a = a + Admin.getAllGroups().get(i).getAssignmentList().get(i) + ",";
+                }
+                for(int j = 0 ; j < Admin.getAllGroups().get(i).getStudentList().size();j++)
+                {
+                    b = b + Admin.getAllAdvisors().get(i).getGroupList().get(i) + ",";
+                }
+                bw.write("Group Assignment-ID-List\n");
+                bw.write(a+"\n");
+                bw.write("Group Group-ID-List\n");
+                bw.write(b+"\n");
+                bw.write("Group Session,Group ID,Group Project");
+                bw.write(Admin.getAllGroups().get(i).getSession()+","+
+                        Admin.getAllGroups().get(i).getGroupID()+","+
+                        Admin.getAllGroups().get(i).getProject()+"\n"
+                        );
+            }
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Something Wrong Ocuur");
+        }
+        
+    }
+    
+    public void saveProject()
+    {
+        try {
+            FileWriter fw = new FileWriter("project.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write("Title,Type,Description,Advisor,Project-ID\n");
+            
+            for(int i = 0 ; i < Admin.getAllProjects().size();i++)
+            {
+                bw.write(
+                        Admin.getAllProjects().get(i).getTitle()+","+
+                        Admin.getAllProjects().get(i).getType()+","+
+                        Admin.getAllProjects().get(i).getDescription()+","+
+                        Admin.getAllProjects().get(i).getAdvisor()+","+
+                        Admin.getAllProjects().get(i).getProjectID()+"\n"
+                );
+            }
+            
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Something Wrong Ocuur");
+        }
+        
+    }
+    
+    
+    public void saveAdvisor2()
+    {
+        try {
+            FileWriter fw = new FileWriter("advisor2.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i = 0 ; i < Admin.getAllAdvisors().size();i++)
+            {
+                String a = "";
+                String b = "";
+                for(int j = 0 ; j < Admin.getAllAdvisors().get(i).getprojectList().size();j++)
+                {
+                    a = a + Admin.getAllAdvisors().get(i).getprojectList().get(i) + ",";
+                }
+                for(int j = 0 ; j < Admin.getAllAdvisors().get(i).getGroupList().size();j++)
+                {
+                    b = b + Admin.getAllAdvisors().get(i).getGroupList().get(i) + ",";
+                }
+                bw.write("Advisors Project-ID-List\n");
+                bw.write(a+"\n");
+                bw.write("Advisors Group-ID-List\n");
+                bw.write(b+"\n");
+            }
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Something Wrong Ocuur");
+        }
+        
+    }
+    
+    public void saveAdvisor1()
+    {
+        try {
+            FileWriter fw = new FileWriter("advisor1.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write("Name,ID,Type,DOB,Experience,Qualification,Department,Email,Password\n");
+            
+            for(int i = 0 ; i < Admin.getAllAdvisors().size();i++)
+            {
+                bw.write(
+                        Admin.getAllAdvisors().get(i).getName()+","+
+                        Admin.getAllAdvisors().get(i).getID()+","+
+                        Admin.getAllAdvisors().get(i).getType()+","+
+                        Admin.getAllAdvisors().get(i).getDOB()+","+
+                        Admin.getAllAdvisors().get(i).getExperience()+","+
+                        Admin.getAllAdvisors().get(i).getQualification()+","+
+                        Admin.getAllAdvisors().get(i).getDepartment()+","+
+                        Admin.getAllAdvisors().get(i).getEmail()+","+
+                        Admin.getAllAdvisors().get(i).getPassword()+"\n"
+                );
+            }
+            
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Something Wrong Ocuur");
+        }
+        
+    }
+    
+    public void saveStudent()
+    {
+        try {
+            FileWriter fw = new FileWriter("student.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write("Name,RegNo,Session,Department,Project,Advisor,Group ID,Email,Password\n");
+            
+            for(int i = 0 ; i < Admin.getAllStudents().size();i++)
+            {
+                bw.write(
+                        Admin.getAllStudents().get(i).getName()+","+
+                        Admin.getAllStudents().get(i).getID()+","+
+                        Admin.getAllStudents().get(i).getSession()+","+
+                        Admin.getAllStudents().get(i).getDepartment()+","+
+                        Admin.getAllStudents().get(i).getProject()+","+
+                        Admin.getAllStudents().get(i).getAdvisor()+","+
+                        Admin.getAllStudents().get(i).getGroupID()+","+
+                        Admin.getAllStudents().get(i).getEmail()+","+
+                        Admin.getAllStudents().get(i).getPassword()+"\n"
+                );
+            }
+            
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Something Wrong Ocuur");
+        }
+        
+    }
     
     public static boolean addStudent(Student s)
     {
@@ -152,7 +349,7 @@ public class Admin {
          {
              for(int j = 0; j < obj.advisorList.get(i).getprojectList().size(); j++)
              {
-                if(obj.advisorList.get(i).getprojectList().get(j).getProjectID().equals(number))
+                if(obj.advisorList.get(i).getprojectList().get(j).equals(number))
                 {
                     index = i;
                     break;
@@ -244,7 +441,7 @@ public class Admin {
         int index = -1;
          for(int i = 0 ; i  < obj.getAssignmentList().size(); i++)
          {
-             if(obj.getAssignmentList().get(i).getAssignNo().equals(number))
+             if(obj.getAssignmentList().get(i).equals(number))
              {
                  index = i;
                  break;

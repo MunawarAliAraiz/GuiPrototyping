@@ -173,6 +173,13 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        Admin admin = Admin.getInstance();
+        admin.saveAdvisor1();
+        admin.saveAdvisor2();
+        admin.saveAssignment();
+        admin.saveGroup();
+        admin.saveProject();
+        admin.saveStudent();
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -161,7 +161,7 @@ public class AdminMenu extends javax.swing.JFrame {
         jLabel66 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Admin Menu");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -1502,7 +1502,7 @@ public class AdminMenu extends javax.swing.JFrame {
             addProjectRow();
             Advisor adv = new Advisor();
             adv = Admin.getAdvisor(advisor);
-            adv.setProjectList(ID,project);
+            adv.setProjectList(ID,project.getProjectID());
             JOptionPane.showMessageDialog(null, "Project Updated Sucessfully");
         }
     }//GEN-LAST:event_logout21ActionPerformed
@@ -1551,7 +1551,7 @@ public class AdminMenu extends javax.swing.JFrame {
             addProjectRow();
             Advisor adv = new Advisor();
             adv = Admin.getAdvisor(advisor);
-            adv.setprojectList(project);
+            adv.setprojectList(project.getProjectID());
             JOptionPane.showMessageDialog(null, "Project Added Sucessfully\nProject ID is"+project.getProjectID());
             projectCombo.addItem(project.getProjectID());
             proCombo.addItem(project.getProjectID());   
@@ -1588,7 +1588,7 @@ public class AdminMenu extends javax.swing.JFrame {
         DOB = dob.format(advDOB.getDate());
         email = advEmail.getText();
         pass = advPass.getText();
-        if(!(validatePassword(name)))
+        if(!(validatePassword(pass)))
         {
             JOptionPane.showMessageDialog(null,"Invalid Password\nEnter it Again");
             flag1 = false;
@@ -1929,21 +1929,26 @@ public  boolean validatePassword(String Password)
     {
         for (short i = 0; i < Password.length(); i++)
         {
+            System.out.println("Hello 0");
             if (Password.charAt(i) >= 'a' && Password.charAt(i) <= 'z')
             {
                 c1 = c1+1;
+                System.out.println("Hello 1");
             }
             if (Password.charAt(i) >= 'A' && Password.charAt(i) <= 'Z')
             {
                 c2 = c2+1;
+                System.out.println("Hello 2");
             }
             if (Password.charAt(i) >= '0' && Password.charAt(i) <= '9')
             {
                 c3 = c3+1;
+                System.out.println("Hello 3");
             }
             if (Password.charAt(i) =='@' || Password.charAt(i) == '!' || Password.charAt(i) =='#' || Password.charAt(i) == '$' || Password.charAt(i) =='*' || Password.charAt(i) == '&')
             {
                 c4 = c4+1;
+                System.out.println("Hello 4");
             }
         }
         if(c1 >= 1 && c2 >= 1 && c3 >= 1 && c4 >= 1 )

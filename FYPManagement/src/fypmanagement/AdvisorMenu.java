@@ -808,17 +808,28 @@ public class AdvisorMenu extends javax.swing.JFrame {
         else
         {
             Advisor newAdv = Admin.getAllAdvisors().get(loginIndex);
+            grpIDCombo.removeAllItems();
+            grpIDCombo1.removeAllItems();
+            grpIDCombo2.removeAllItems();
+            grpIDCombo3.removeAllItems();
             for(int i=0; i<newAdv.getGroupList().size(); i++)
             {
-                grpIDCombo.addItem(newAdv.getGroupList().get(i).getGroupID());
-                grpIDCombo1.addItem(newAdv.getGroupList().get(i).getGroupID());
-                grpIDCombo2.addItem(newAdv.getGroupList().get(i).getGroupID());
-                grpIDCombo3.addItem(newAdv.getGroupList().get(i).getGroupID());
-                for(int j=0; j<newAdv.getGroupList().get(i).getAssignmentList().size(); j++)
+                grpIDCombo.addItem(newAdv.getGroupList().get(i));
+                grpIDCombo1.addItem(newAdv.getGroupList().get(i));
+                grpIDCombo2.addItem(newAdv.getGroupList().get(i));
+                grpIDCombo3.addItem(newAdv.getGroupList().get(i));
+            }
+            assignNoCombo1.removeAllItems();
+            assignNoCombo3.removeAllItems();
+            assignNoCombo4.removeAllItems();
+            for(int j=0; j<newAdv.getGroupList().size(); j++)
+            {
+                Group g = Admin.getGroup(newAdv.getGroupList().get(j));
+                for(int k=0; k<g.getAssignmentList().size(); k++)
                 {
-                    assignNoCombo1.addItem(newAdv.getGroupList().get(i).getAssignmentList().get(j).getAssignNo());
-                    assignNoCombo3.addItem(newAdv.getGroupList().get(i).getAssignmentList().get(j).getAssignNo());
-                    assignNoCombo4.addItem(newAdv.getGroupList().get(i).getAssignmentList().get(j).getAssignNo());
+                    assignNoCombo1.addItem(g.getAssignmentList().get(k));
+                    assignNoCombo3.addItem(g.getAssignmentList().get(k));
+                    assignNoCombo4.addItem(g.getAssignmentList().get(k));
                 }
             }
             if(newAdv.getGroupList().size()<1)
@@ -843,7 +854,7 @@ public class AdvisorMenu extends javax.swing.JFrame {
         deadline = dLine.format(addAssDeadline.getDate());
         group = grpIDCombo.getSelectedItem().toString();
         rubrics = addAssRubrics.getText();
-        assignNo = ""+(Admin.getAllAssignmnets().size()+1);
+        assignNo = "Assignment-"+(Admin.getAllAssignmnets().size()+1);
         Assignment assign = new Assignment();
         assign.setTitle(title);
         assign.setMarks(marks);
@@ -854,7 +865,7 @@ public class AdvisorMenu extends javax.swing.JFrame {
         if(Admin.addAssignment(assign))
         {
             Group g = Admin.getGroup(assign.getGroupID());
-            g.setAssignmentList(assign);
+            g.setAssignmentList(assignNo);
             JOptionPane.showMessageDialog(null, "Assignment Added Sucessfully\nAssignment No is "+assign.getAssignNo());
             assignNoCombo1.addItem(assign.getAssignNo());
             assignNoCombo4.addItem(assign.getAssignNo());
@@ -898,7 +909,7 @@ public class AdvisorMenu extends javax.swing.JFrame {
         {
             Group g = Admin.getGroup(assign.getGroupID());
             int index = Admin.searchGroupAssignment(assignNo);
-            g.getAssignmentList().set(index, assign);
+            g.getAssignmentList().set(index, assignNo);
             JOptionPane.showMessageDialog(null, "Assignment Updated Sucessfully\nAssignment No is "+assign.getAssignNo());
             grpIDCombo1.addItem(assign.getAssignNo());
             assignNoCombo1.addItem(assign.getAssignNo());
@@ -927,7 +938,7 @@ public class AdvisorMenu extends javax.swing.JFrame {
         Group g = Admin.getGroup(grpID);
         for(int i=0; i < g.getAssignmentList().size(); i++)
         {
-            assignNoCombo3.addItem(g.getAssignmentList().get(i).getAssignNo());
+            assignNoCombo3.addItem(g.getAssignmentList().get(i));
         }
         jLabel29.setText("Assignment No");
         assignNoCombo3.show();
@@ -939,7 +950,7 @@ public class AdvisorMenu extends javax.swing.JFrame {
         Group g = Admin.getGroup(grpID);
         for(int i=0; i < g.getAssignmentList().size(); i++)
         {
-            assignNoCombo3.addItem(g.getAssignmentList().get(i).getAssignNo());
+            assignNoCombo4.addItem(g.getAssignmentList().get(i));
         }
         jLabel22.setText("Assignment No");
         assignNoCombo4.show();

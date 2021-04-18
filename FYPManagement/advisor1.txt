@@ -1,0 +1,2 @@
+Name,ID,Type,DOB,Experience,Qualification,Department,Email,Password
+ABC,Adv-1,Advisor,02 Apr, 2021,1,BSCS,Computer Science,abc@xyz.com,03218858928Ar@
