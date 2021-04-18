@@ -5,6 +5,11 @@
  */
 package fypmanagement;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Munawar Ali
@@ -16,8 +21,10 @@ public class AdvisorMenu extends javax.swing.JFrame {
      */
     public AdvisorMenu() {
         initComponents();
+        advLogin.show();
+        AdvisorMenu.hide();
     }
-
+    int loginIndex = -1;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,6 +34,13 @@ public class AdvisorMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        advLogin = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        advUsername = new javax.swing.JTextField();
+        advPass = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        advLoginButton = new javax.swing.JButton();
         AdvisorMenu = new javax.swing.JTabbedPane();
         AddAssignment = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -34,53 +48,51 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        addAssTitle = new javax.swing.JTextField();
+        addAssMarks = new javax.swing.JTextField();
+        grpIDCombo = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         logout6 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        addAssDeadline = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        addAssRubrics = new javax.swing.JTextArea();
         DeleteAssignment = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         logout4 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        grpIDCombo1 = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        assignNoCombo3 = new javax.swing.JComboBox<>();
         UpdateAssignment = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        grpIDCombo2 = new javax.swing.JComboBox<>();
         logout5 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        assignNoCombo1 = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        updAssTitle = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        updAssMarks = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jLabel29 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        updAssDeadline = new com.toedter.calendar.JDateChooser();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        updAssRubrics = new javax.swing.JTextArea();
         MarkAssignment = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        grpIDCombo3 = new javax.swing.JComboBox<>();
         logout10 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        assGrade = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        assMark = new javax.swing.JTextField();
+        assignNoCombo4 = new javax.swing.JComboBox<>();
         ViewAssignments = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jAssignTable = new javax.swing.JTable();
         jLabel25 = new javax.swing.JLabel();
         Logout = new javax.swing.JPanel();
         jLabel66 = new javax.swing.JLabel();
@@ -89,11 +101,95 @@ public class AdvisorMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Advisor Menu");
 
+        advLogin.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Bernard MT Condensed", 1, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Advisor Login");
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Email");
+
+        advUsername.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+
+        advPass.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        advPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                advPassActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel31.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 48)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Password");
+
+        advLoginButton.setBackground(new java.awt.Color(51, 255, 0));
+        advLoginButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
+        advLoginButton.setForeground(new java.awt.Color(0, 102, 255));
+        advLoginButton.setText("Login");
+        advLoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                advLoginButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout advLoginLayout = new javax.swing.GroupLayout(advLogin);
+        advLogin.setLayout(advLoginLayout);
+        advLoginLayout.setHorizontalGroup(
+            advLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(advLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(advLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(advLoginLayout.createSequentialGroup()
+                        .addGroup(advLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(134, 134, 134)
+                        .addGroup(advLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(advUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                            .addComponent(advPass))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(advLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(advLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        advLoginLayout.setVerticalGroup(
+            advLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(advLoginLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addGroup(advLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(advUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(advLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(advLoginLayout.createSequentialGroup()
+                        .addComponent(advPass)
+                        .addGap(6, 6, 6)))
+                .addGap(41, 41, 41)
+                .addComponent(advLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
         AdvisorMenu.setBackground(new java.awt.Color(0, 0, 0));
         AdvisorMenu.setForeground(new java.awt.Color(255, 255, 255));
         AdvisorMenu.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        AdvisorMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdvisorMenuMouseClicked(evt);
+            }
+        });
 
-        AddAssignment.setBackground(new java.awt.Color(0, 0, 0));
+        AddAssignment.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,17 +211,16 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Rubrics");
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        addAssTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        addAssTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                addAssTitleActionPerformed(evt);
             }
         });
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        addAssMarks.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018", "2019", "2020", "2021" }));
+        grpIDCombo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
@@ -137,83 +232,85 @@ public class AdvisorMenu extends javax.swing.JFrame {
         logout6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         logout6.setForeground(new java.awt.Color(255, 255, 255));
         logout6.setText("Add");
+        logout6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout6ActionPerformed(evt);
+            }
+        });
 
-        jDateChooser1.setDateFormatString("MM-dd-yyyy");
+        addAssDeadline.setDateFormatString("MM-dd-yyyy");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        addAssRubrics.setColumns(20);
+        addAssRubrics.setRows(5);
+        jScrollPane1.setViewportView(addAssRubrics);
 
         javax.swing.GroupLayout AddAssignmentLayout = new javax.swing.GroupLayout(AddAssignment);
         AddAssignment.setLayout(AddAssignmentLayout);
         AddAssignmentLayout.setHorizontalGroup(
             AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AddAssignmentLayout.createSequentialGroup()
-                .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddAssignmentLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddAssignmentLayout.createSequentialGroup()
+                        .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66)
                         .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AddAssignmentLayout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(jLabel9)
-                                .addGap(81, 81, 81))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddAssignmentLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addGap(18, 18, 18)))
-                        .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(AddAssignmentLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel14))
-                    .addGroup(AddAssignmentLayout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(logout6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(165, Short.MAX_VALUE))
+                            .addComponent(addAssTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addAssMarks, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddAssignmentLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addAssDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddAssignmentLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(grpIDCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddAssignmentLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddAssignmentLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(logout6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AddAssignmentLayout.setVerticalGroup(
             AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AddAssignmentLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddAssignmentLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddAssignmentLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addAssTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addAssMarks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addAssDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(grpIDCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addGap(35, 35, 35)
+                .addGap(26, 26, 26)
                 .addComponent(logout6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(34, 34, 34))
         );
 
         AdvisorMenu.addTab("Add", AddAssignment);
 
-        DeleteAssignment.setBackground(new java.awt.Color(0, 0, 0));
+        DeleteAssignment.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
@@ -221,49 +318,62 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Delete Assignment");
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Group ID");
-
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         logout4.setBackground(new java.awt.Color(255, 0, 0));
         logout4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         logout4.setForeground(new java.awt.Color(255, 255, 255));
         logout4.setText("Delete");
+        logout4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout4ActionPerformed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Assignment No");
+        jLabel16.setText("Group ID");
 
-        jComboBox2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        grpIDCombo1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        grpIDCombo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grpIDCombo1MouseClicked(evt);
+            }
+        });
+        grpIDCombo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grpIDCombo1ActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("Assignment No");
+
+        assignNoCombo3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout DeleteAssignmentLayout = new javax.swing.GroupLayout(DeleteAssignment);
         DeleteAssignment.setLayout(DeleteAssignmentLayout);
         DeleteAssignmentLayout.setHorizontalGroup(
             DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DeleteAssignmentLayout.createSequentialGroup()
-                .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(212, 212, 212)
+                .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(DeleteAssignmentLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jLabel15))
-                    .addGroup(DeleteAssignmentLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(DeleteAssignmentLayout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteAssignmentLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel29)
+                                .addGap(32, 32, 32)
+                                .addComponent(assignNoCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteAssignmentLayout.createSequentialGroup()
+                                    .addComponent(logout4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(68, 68, 68))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(DeleteAssignmentLayout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(logout4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(159, Short.MAX_VALUE))
+                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addGap(29, 29, 29)
+                        .addComponent(grpIDCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(201, 201, 201))))
         );
         DeleteAssignmentLayout.setVerticalGroup(
             DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,19 +383,19 @@ public class AdvisorMenu extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                    .addComponent(grpIDCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(DeleteAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(assignNoCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addComponent(logout4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         AdvisorMenu.addTab("Delete", DeleteAssignment);
 
-        UpdateAssignment.setBackground(new java.awt.Color(0, 0, 0));
+        UpdateAssignment.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
@@ -297,29 +407,32 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Group ID");
 
-        jComboBox4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        grpIDCombo2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         logout5.setBackground(new java.awt.Color(102, 255, 51));
         logout5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         logout5.setForeground(new java.awt.Color(255, 255, 255));
         logout5.setText("Update");
+        logout5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout5ActionPerformed(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Assignment No");
 
-        jComboBox5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        assignNoCombo1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Title");
 
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        updAssTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        updAssTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                updAssTitleActionPerformed(evt);
             }
         });
 
@@ -327,72 +440,59 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Total Marks");
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        updAssMarks.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel28.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Deadline");
 
-        jDateChooser2.setDateFormatString("MM-dd-yyyy");
-
-        jLabel29.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setText("Group ID");
-
-        jComboBox8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018", "2019", "2020", "2021" }));
+        updAssDeadline.setDateFormatString("MM-dd-yyyy");
 
         jLabel30.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Rubrics");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        updAssRubrics.setColumns(20);
+        updAssRubrics.setRows(5);
+        jScrollPane3.setViewportView(updAssRubrics);
 
         javax.swing.GroupLayout UpdateAssignmentLayout = new javax.swing.GroupLayout(UpdateAssignment);
         UpdateAssignment.setLayout(UpdateAssignmentLayout);
         UpdateAssignmentLayout.setHorizontalGroup(
             UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UpdateAssignmentLayout.createSequentialGroup()
+                .addContainerGap(177, Short.MAX_VALUE)
                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UpdateAssignmentLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(UpdateAssignmentLayout.createSequentialGroup()
+                            .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel19)
+                                .addComponent(jLabel18))
+                            .addGap(18, 18, 18)
+                            .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(grpIDCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(assignNoCombo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(updAssMarks, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(UpdateAssignmentLayout.createSequentialGroup()
                                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel18))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel26))
                                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(UpdateAssignmentLayout.createSequentialGroup()
-                                    .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel28)
-                                        .addComponent(jLabel29)
-                                        .addComponent(jLabel30)
-                                        .addComponent(jLabel27)
-                                        .addComponent(jLabel26))
-                                    .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(UpdateAssignmentLayout.createSequentialGroup()
-                                            .addGap(40, 40, 40)
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UpdateAssignmentLayout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(UpdateAssignmentLayout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(updAssTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UpdateAssignmentLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(logout5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jComboBox8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(updAssDeadline, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                    .addGroup(UpdateAssignmentLayout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(logout5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(UpdateAssignmentLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel17)))
-                .addContainerGap(122, Short.MAX_VALUE))
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         UpdateAssignmentLayout.setVerticalGroup(
             UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,41 +501,35 @@ public class AdvisorMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(assignNoCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(grpIDCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updAssTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(updAssMarks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(UpdateAssignmentLayout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel29))
-                    .addGroup(UpdateAssignmentLayout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
+                    .addComponent(updAssDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(UpdateAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(logout5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         AdvisorMenu.addTab("Update", UpdateAssignment);
 
-        MarkAssignment.setBackground(new java.awt.Color(0, 0, 0));
+        MarkAssignment.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
@@ -447,8 +541,12 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Marks Obtained");
 
-        jComboBox6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        grpIDCombo3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        grpIDCombo3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grpIDCombo3MouseClicked(evt);
+            }
+        });
 
         logout10.setBackground(new java.awt.Color(102, 255, 0));
         logout10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -464,8 +562,8 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Assignment No");
 
-        jComboBox7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        assGrade.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        assGrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "F" }));
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -475,52 +573,43 @@ public class AdvisorMenu extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Group ID");
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        assMark.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        assMark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                assMarkActionPerformed(evt);
             }
         });
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
+        assignNoCombo4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout MarkAssignmentLayout = new javax.swing.GroupLayout(MarkAssignment);
         MarkAssignment.setLayout(MarkAssignmentLayout);
         MarkAssignmentLayout.setHorizontalGroup(
             MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MarkAssignmentLayout.createSequentialGroup()
-                .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(213, Short.MAX_VALUE)
+                .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(MarkAssignmentLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jLabel20))
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(assignNoCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MarkAssignmentLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(assMark))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MarkAssignmentLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(assGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MarkAssignmentLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MarkAssignmentLayout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MarkAssignmentLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MarkAssignmentLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField8))
-                            .addGroup(MarkAssignmentLayout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addGap(89, 89, 89)
-                                .addComponent(jTextField7))))
+                        .addComponent(logout10, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(MarkAssignmentLayout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(logout10, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(171, Short.MAX_VALUE))
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(grpIDCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         MarkAssignmentLayout.setVerticalGroup(
             MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -529,41 +618,49 @@ public class AdvisorMenu extends javax.swing.JFrame {
                 .addComponent(jLabel20)
                 .addGap(45, 45, 45)
                 .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addGap(17, 17, 17)
+                    .addComponent(jLabel24)
+                    .addComponent(grpIDCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MarkAssignmentLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(assignNoCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MarkAssignmentLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel22)))
+                .addGap(18, 18, 18)
                 .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(assMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MarkAssignmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(assGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addComponent(logout10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         AdvisorMenu.addTab("Mark", MarkAssignment);
 
-        ViewAssignments.setBackground(new java.awt.Color(0, 0, 0));
+        ViewAssignments.setBackground(new java.awt.Color(51, 51, 51));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jAssignTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Assignment No.", "Marks", "Title", "Rubrics", "Deadline"
+                "Group ID", "Assignment No.", "Title", "Marks", "Deadline", "Rubrics"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jAssignTable);
+        if (jAssignTable.getColumnModel().getColumnCount() > 0) {
+            jAssignTable.getColumnModel().getColumn(0).setMinWidth(30);
+            jAssignTable.getColumnModel().getColumn(1).setMinWidth(80);
+            jAssignTable.getColumnModel().getColumn(2).setMinWidth(150);
+            jAssignTable.getColumnModel().getColumn(3).setMinWidth(50);
+            jAssignTable.getColumnModel().getColumn(4).setMinWidth(120);
+            jAssignTable.getColumnModel().getColumn(5).setMinWidth(200);
+        }
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
@@ -575,25 +672,25 @@ public class AdvisorMenu extends javax.swing.JFrame {
         ViewAssignments.setLayout(ViewAssignmentsLayout);
         ViewAssignmentsLayout.setHorizontalGroup(
             ViewAssignmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-            .addGroup(ViewAssignmentsLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewAssignmentsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel25)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ViewAssignmentsLayout.setVerticalGroup(
             ViewAssignmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewAssignmentsLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel25)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         AdvisorMenu.addTab("View Assignments", ViewAssignments);
 
-        Logout.setBackground(new java.awt.Color(0, 0, 0));
+        Logout.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel66.setBackground(new java.awt.Color(255, 255, 255));
         jLabel66.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
@@ -615,23 +712,23 @@ public class AdvisorMenu extends javax.swing.JFrame {
         Logout.setLayout(LogoutLayout);
         LogoutLayout.setHorizontalGroup(
             LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogoutLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(27, 27, 27))
             .addGroup(LogoutLayout.createSequentialGroup()
-                .addGap(229, 229, 229)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel66, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(LogoutLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         LogoutLayout.setVerticalGroup(
             LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoutLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(107, 107, 107)
                 .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(55, 55, 55)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         AdvisorMenu.addTab("Logout", Logout);
@@ -641,38 +738,43 @@ public class AdvisorMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(AdvisorMenu)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(advLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AdvisorMenu)
+            .addComponent(AdvisorMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(advLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void addAssTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAssTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_addAssTitleActionPerformed
 
     private void logout10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout10ActionPerformed
         // TODO add your handling code here:
-        AdvisorMenu menu = new AdvisorMenu();
-        this.setVisible(false);
-        menu.setVisible(true);
+      String grpID,assignNo,obMarks,grade;
+      grpID = grpIDCombo3.getSelectedItem().toString();
+      assignNo = assignNoCombo4.getSelectedItem().toString();
+      obMarks = assMark.getText();
+      grade = assGrade.getSelectedItem().toString();
+      Assignment a = Admin.getAssignment(assignNo);
+      a.setGrade(grade);
+      a.setMarks(obMarks);
     }//GEN-LAST:event_logout10ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void assMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assMarkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_assMarkActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void updAssTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updAssTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_updAssTitleActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -681,6 +783,190 @@ public class AdvisorMenu extends javax.swing.JFrame {
         main.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void advPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_advPassActionPerformed
+
+    private void advLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advLoginButtonActionPerformed
+        // TODO add your handling code here:
+        String user,pass;
+        user = advUsername.getText();
+        pass = advPass.getText();
+        for(int i=0; i<Admin.getAllAdvisors().size();i++)
+        {
+            if(user.equals(Admin.getAllAdvisors().get(i).getEmail())&& pass.equals(Admin.getAllAdvisors().get(i).getPassword()))
+            {
+                loginIndex = i;
+                advLogin.hide();
+                AdvisorMenu.show();
+            }
+        }
+        if(loginIndex == -1)
+        {
+            JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+        }
+        else
+        {
+            Advisor newAdv = Admin.getAllAdvisors().get(loginIndex);
+            for(int i=0; i<newAdv.getGroupList().size(); i++)
+            {
+                grpIDCombo.addItem(newAdv.getGroupList().get(i).getGroupID());
+                grpIDCombo1.addItem(newAdv.getGroupList().get(i).getGroupID());
+                grpIDCombo2.addItem(newAdv.getGroupList().get(i).getGroupID());
+                grpIDCombo3.addItem(newAdv.getGroupList().get(i).getGroupID());
+                for(int j=0; j<newAdv.getGroupList().get(i).getAssignmentList().size(); j++)
+                {
+                    assignNoCombo1.addItem(newAdv.getGroupList().get(i).getAssignmentList().get(j).getAssignNo());
+                    assignNoCombo3.addItem(newAdv.getGroupList().get(i).getAssignmentList().get(j).getAssignNo());
+                    assignNoCombo4.addItem(newAdv.getGroupList().get(i).getAssignmentList().get(j).getAssignNo());
+                }
+            }
+            if(newAdv.getGroupList().size()<1)
+            {
+                logout6.hide();
+                logout4.hide();
+                logout5.hide();
+                logout10.hide();
+                jLabel14.setText("No Group available for you Now");
+                jLabel15.setText("No Group Found");
+                jLabel17.setText("No Group Found");
+                jLabel20.setText("No Group Found");
+            }
+        }
+    }//GEN-LAST:event_advLoginButtonActionPerformed
+
+    private void logout6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout6ActionPerformed
+        String title,marks,deadline,group,rubrics,assignNo;
+        SimpleDateFormat dLine = new  SimpleDateFormat("dd MMM, yyyy");
+        title = addAssTitle.getText();
+        marks = addAssMarks.getText();
+        deadline = dLine.format(addAssDeadline.getDate());
+        group = grpIDCombo.getSelectedItem().toString();
+        rubrics = addAssRubrics.getText();
+        assignNo = ""+(Admin.getAllAssignmnets().size()+1);
+        Assignment assign = new Assignment();
+        assign.setTitle(title);
+        assign.setMarks(marks);
+        assign.setDeadline(deadline);
+        assign.setGroupID(group);
+        assign.setRubrics(rubrics);
+        assign.setAssignNo(assignNo);
+        if(Admin.addAssignment(assign))
+        {
+            Group g = Admin.getGroup(assign.getGroupID());
+            g.setAssignmentList(assign);
+            JOptionPane.showMessageDialog(null, "Assignment Added Sucessfully\nAssignment No is "+assign.getAssignNo());
+            assignNoCombo1.addItem(assign.getAssignNo());
+            assignNoCombo4.addItem(assign.getAssignNo());
+            assGrade.addItem(assign.getAssignNo());
+            addAssignmentRow();
+        }
+    }//GEN-LAST:event_logout6ActionPerformed
+
+    private void logout4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout4ActionPerformed
+        String grpID,assignNo;
+        grpID = grpIDCombo1.getSelectedItem().toString();
+        assignNo = assignNoCombo3.getSelectedItem().toString();
+        if(Admin.DeleteAssignment(assignNo))
+        {
+            JOptionPane.showMessageDialog(null,"Assignment Deleted Sucessfully");
+            Group g = Admin.getGroup(grpID);
+            int index = Admin.searchGroupAssignment(assignNo);
+            g.getAssignmentList().remove(index);
+            addAssignmentRow();
+        }  
+    }//GEN-LAST:event_logout4ActionPerformed
+
+    private void logout5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout5ActionPerformed
+
+        String title,marks,deadline,group,rubrics,assignNo;
+        SimpleDateFormat dLine = new  SimpleDateFormat("dd MMM, yyyy");
+        title = updAssTitle.getText();
+        marks = updAssMarks.getText();
+        deadline = dLine.format(updAssDeadline.getDate());
+        group = grpIDCombo2.getSelectedItem().toString();
+        rubrics = updAssRubrics.getText();
+        assignNo = assignNoCombo1.getSelectedItem().toString();
+        Assignment assign = new Assignment();
+        assign.setTitle(title);
+        assign.setMarks(marks);
+        assign.setDeadline(deadline);
+        assign.setGroupID(group);
+        assign.setRubrics(rubrics);
+        assign.setAssignNo(assignNo);
+        if(Admin.updateAssignment(assignNo, assign))
+        {
+            Group g = Admin.getGroup(assign.getGroupID());
+            int index = Admin.searchGroupAssignment(assignNo);
+            g.getAssignmentList().set(index, assign);
+            JOptionPane.showMessageDialog(null, "Assignment Updated Sucessfully\nAssignment No is "+assign.getAssignNo());
+            grpIDCombo1.addItem(assign.getAssignNo());
+            assignNoCombo1.addItem(assign.getAssignNo());
+            assGrade.addItem(assign.getAssignNo());
+            addAssignmentRow();
+        }
+    }//GEN-LAST:event_logout5ActionPerformed
+
+    private void grpIDCombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grpIDCombo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grpIDCombo1ActionPerformed
+
+    private void AdvisorMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdvisorMenuMouseClicked
+        assignNoCombo3.hide();
+        assignNoCombo3.removeAllItems();
+        assignNoCombo4.removeAllItems();
+        assignNoCombo4.hide();
+        jLabel22.setText("First select Group-ID");
+        jLabel29.setText("First Select Group-ID");
+        logout4.hide();
+        logout10.hide();
+    }//GEN-LAST:event_AdvisorMenuMouseClicked
+
+    private void grpIDCombo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grpIDCombo1MouseClicked
+        String grpID = grpIDCombo1.getSelectedItem().toString();
+        Group g = Admin.getGroup(grpID);
+        for(int i=0; i < g.getAssignmentList().size(); i++)
+        {
+            assignNoCombo3.addItem(g.getAssignmentList().get(i).getAssignNo());
+        }
+        jLabel29.setText("Assignment No");
+        assignNoCombo3.show();
+        logout4.show();
+    }//GEN-LAST:event_grpIDCombo1MouseClicked
+
+    private void grpIDCombo3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grpIDCombo3MouseClicked
+        String grpID = grpIDCombo3.getSelectedItem().toString();
+        Group g = Admin.getGroup(grpID);
+        for(int i=0; i < g.getAssignmentList().size(); i++)
+        {
+            assignNoCombo3.addItem(g.getAssignmentList().get(i).getAssignNo());
+        }
+        jLabel22.setText("Assignment No");
+        assignNoCombo4.show();
+        logout10.show();
+    }//GEN-LAST:event_grpIDCombo3MouseClicked
+    
+    private void addAssignmentRow()
+    {
+        DefaultTableModel model = (DefaultTableModel)jAssignTable.getModel();
+        int rows = jAssignTable.getRowCount();
+        for(int i = rows-1; i>=0; i--)
+        {
+            model.removeRow(i);
+        }
+        List<Assignment> projectList = Admin.getAllAssignmnets();
+        Object rowData[] = new Object[6];
+        for(int i = 0; i< projectList.size();i++)
+        {
+            rowData[0] = projectList.get(i).getGroupID();
+            rowData[1] = projectList.get(i).getAssignNo();
+            rowData[2] = projectList.get(i).getTitle();
+            rowData[3] = projectList.get(i).getMarks();
+            rowData[4] = projectList.get(i).getDeadline();
+            rowData[5] = projectList.get(i).getRubrics();
+            model.addRow(rowData);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -724,21 +1010,28 @@ public class AdvisorMenu extends javax.swing.JFrame {
     private javax.swing.JPanel MarkAssignment;
     private javax.swing.JPanel UpdateAssignment;
     private javax.swing.JPanel ViewAssignments;
+    private com.toedter.calendar.JDateChooser addAssDeadline;
+    private javax.swing.JTextField addAssMarks;
+    private javax.swing.JTextArea addAssRubrics;
+    private javax.swing.JTextField addAssTitle;
+    private javax.swing.JPanel advLogin;
+    private javax.swing.JButton advLoginButton;
+    private javax.swing.JTextField advPass;
+    private javax.swing.JTextField advUsername;
+    private javax.swing.JComboBox<String> assGrade;
+    private javax.swing.JTextField assMark;
+    private javax.swing.JComboBox<String> assignNoCombo1;
+    private javax.swing.JComboBox<String> assignNoCombo3;
+    private javax.swing.JComboBox<String> assignNoCombo4;
+    private javax.swing.JComboBox<String> grpIDCombo;
+    private javax.swing.JComboBox<String> grpIDCombo1;
+    private javax.swing.JComboBox<String> grpIDCombo2;
+    private javax.swing.JComboBox<String> grpIDCombo3;
+    private javax.swing.JTable jAssignTable;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -756,24 +1049,22 @@ public class AdvisorMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JButton logout10;
     private javax.swing.JButton logout4;
     private javax.swing.JButton logout5;
     private javax.swing.JButton logout6;
+    private com.toedter.calendar.JDateChooser updAssDeadline;
+    private javax.swing.JTextField updAssMarks;
+    private javax.swing.JTextArea updAssRubrics;
+    private javax.swing.JTextField updAssTitle;
     // End of variables declaration//GEN-END:variables
 }

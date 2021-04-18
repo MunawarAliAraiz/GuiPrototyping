@@ -5,6 +5,8 @@
  */
 package fypmanagement;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Munawar Ali
@@ -28,9 +30,9 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         MainMenu = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        Admin = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        StudentButton = new javax.swing.JButton();
+        AdminButton = new javax.swing.JButton();
+        AdvisorButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,33 +44,33 @@ public class MainMenu extends javax.swing.JFrame {
         MainMenu.setBackground(new java.awt.Color(0, 0, 51));
         MainMenu.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Student");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        StudentButton.setBackground(new java.awt.Color(51, 51, 51));
+        StudentButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        StudentButton.setForeground(new java.awt.Color(255, 255, 255));
+        StudentButton.setText("Student");
+        StudentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                StudentButtonActionPerformed(evt);
             }
         });
 
-        Admin.setBackground(new java.awt.Color(51, 51, 51));
-        Admin.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        Admin.setForeground(new java.awt.Color(255, 255, 255));
-        Admin.setText("Admin");
-        Admin.addActionListener(new java.awt.event.ActionListener() {
+        AdminButton.setBackground(new java.awt.Color(51, 51, 51));
+        AdminButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        AdminButton.setForeground(new java.awt.Color(255, 255, 255));
+        AdminButton.setText("Admin");
+        AdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminActionPerformed(evt);
+                AdminButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(51, 51, 51));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Advisor");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AdvisorButton.setBackground(new java.awt.Color(51, 51, 51));
+        AdvisorButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        AdvisorButton.setForeground(new java.awt.Color(255, 255, 255));
+        AdvisorButton.setText("Advisor");
+        AdvisorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AdvisorButtonActionPerformed(evt);
             }
         });
 
@@ -103,11 +105,11 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainMenuLayout.createSequentialGroup()
                         .addGap(114, 114, 114)
-                        .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AdminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(AdvisorButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
+                        .addComponent(StudentButton))
                     .addGroup(MainMenuLayout.createSequentialGroup()
                         .addGap(223, 223, 223)
                         .addComponent(jLabel1)))
@@ -136,9 +138,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Admin)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(AdminButton)
+                    .addComponent(AdvisorButton)
+                    .addComponent(StudentButton))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(40, 40, 40))
@@ -161,32 +163,48 @@ public class MainMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
+    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         AdminMenu adminMenu = new AdminMenu();
         adminMenu.setVisible(true);
         
-    }//GEN-LAST:event_AdminActionPerformed
+    }//GEN-LAST:event_AdminButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void AdvisorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdvisorButtonActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        AdvisorMenu advMenu = new AdvisorMenu();
-        advMenu.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        if(Admin.getAllAdvisors().size()<1)
+        {
+            JOptionPane.showMessageDialog(null, "No Advisor has been Added\nAdd Advisor First");
+        }
+        else
+        {
+            this.setVisible(false);
+            AdvisorMenu advMenu = new AdvisorMenu();
+            advMenu.setVisible(true);
+        }
+        
+        
+    }//GEN-LAST:event_AdvisorButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void StudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentButtonActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        StudentMenu stdMenu = new StudentMenu();
-        stdMenu.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(Admin.getAllStudents().size()<1)
+        {
+            JOptionPane.showMessageDialog(null, "No Student has been Added\nAdd Student First");
+        }
+        else
+        {
+            this.setVisible(false);
+            StudentMenu stdMenu = new StudentMenu();
+            stdMenu.setVisible(true);
+        }
+    }//GEN-LAST:event_StudentButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,11 +242,11 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Admin;
+    private javax.swing.JButton AdminButton;
+    private javax.swing.JButton AdvisorButton;
     private javax.swing.JPanel MainMenu;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton StudentButton;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
